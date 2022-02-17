@@ -11,7 +11,7 @@
     <script type="text/javascript" src="ciudades.js"></script>
     <link rel="stylesheet" href=" https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
 
-    <title>Ejercicio 4</title>
+    <title>Ejercicio 5</title>
     <style>
         #map {
             width: 100%;
@@ -64,12 +64,6 @@
                                         
         };
 
-        function getColor1(d) {
-            return d == "S" ? 'Yellow' :
-            d == 'N' ? 'green': "";
-                                        
-        };
-
         function style(feature) {
             return {
                 fillColor: getColor(feature.properties.continent),
@@ -81,27 +75,9 @@
             };
         }
 
-        function style1(feature) {
-            return {
-                fillColor: getColor1(feature.properties.CAPITAL),
-                weight: 2,
-                opacity: 1,
-                color: 'white',
-                dashArray: '3',
-                fillOpacity: 0.7
-            };
-        }
-
-       
-
         L.geoJson(countries).addTo(map);
         L.geoJson(countries, {
             style: style
-        }).addTo(map);
-
-        L.geoJson(cities).addTo(map);
-        L.geoJson(cities, {
-            style: style1
         }).addTo(map);
 
         function popup(feature, layer) {
